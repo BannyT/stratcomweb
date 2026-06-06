@@ -1,0 +1,179 @@
+/* Services Section */
+.services-section {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2f8 100%);
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+  
+  .services-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  
+  /* Header Styles */
+  .services-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .services-badge {
+    display: inline-block;
+    background: rgba(30, 111, 159, 0.1);
+    color: #1e6f9f;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0.4rem 1rem;
+    border-radius: 40px;
+    margin-bottom: 1rem;
+  }
+  
+  .services-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #1e2b3c;
+    margin-bottom: 1rem;
+  }
+  
+  .services-title .highlight {
+    background: linear-gradient(135deg, #1e6f9f, #2c4c6e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .services-subtitle {
+    font-size: 1.1rem;
+    color: #4a627a;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  
+  /* Grid Layout */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  /* Service Card */
+  .service-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 28px;
+    padding: 2rem 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.15);
+    background: white;
+    border-color: rgba(30, 111, 159, 0.2);
+  }
+  
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: 1.2rem;
+    display: inline-block;
+    background: linear-gradient(135deg, #1e6f9f, #2c4c6e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .service-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e2b3c;
+    margin-bottom: 0.75rem;
+  }
+  
+  .service-description {
+    color: #4a627a;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  /* Feature List */
+  .service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.8rem 0;
+  }
+  
+  .service-features li {
+    color: #2c4c6e;
+    font-size: 0.85rem;
+    padding: 0.4rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .service-features li::before {
+    content: "✓";
+    color: #1e6f9f;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  /* Card Button */
+  .service-btn {
+    background: transparent;
+    border: 1px solid #1e6f9f;
+    color: #1e6f9f;
+    padding: 0.7rem 1.5rem;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+  }
+  
+  .service-btn:hover {
+    background: linear-gradient(135deg, #1e6f9f, #2c4c6e);
+    color: white;
+    border-color: transparent;
+    transform: scale(0.98);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .services-section {
+      padding: 3rem 1.5rem;
+    }
+  
+    .services-title {
+      font-size: 2rem;
+    }
+  
+    .services-subtitle {
+      font-size: 1rem;
+    }
+  
+    .service-card {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .services-title {
+      font-size: 1.8rem;
+    }
+  
+    .service-icon {
+      font-size: 2.5rem;
+    }
+  
+    .service-title {
+      font-size: 1.3rem;
+    }
+  }
