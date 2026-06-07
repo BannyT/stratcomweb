@@ -1,4 +1,4 @@
-/* Reset & Base */
+/* ccs style for Header */
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@
   
   /* Header Styles */
   .header {
-    background-color: #ffffff;
+    background-color:#ffffff;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
@@ -23,6 +23,7 @@
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 2rem;
+    font-style:italic;
   }
   
   .header-container {

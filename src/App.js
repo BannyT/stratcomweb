@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="App">
              <Header/>
-             <Carousel autoPlayInterval={5000} />
-             <Services/>
+             {/* <Carousel autoPlayInterval={5000} /> */}
+             {/* <Services/> */}
     </div>
   );
 }
