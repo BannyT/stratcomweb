@@ -62,8 +62,8 @@ const Footer = () => {
           <div className="footer-contact">
             <h4>Contact Us</h4>
             <ul>
-              <li>📍 Nairobi, Kenya</li>
-              <li>📞 +254 700 123 456</li>
+              <li>📍 Kampala, Uganda</li>
+              <li>📞 +256 700 123 456</li>
               <li>✉️ hello@stratcom.com</li>
             </ul>
           </div>
