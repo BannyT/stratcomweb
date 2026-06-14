@@ -1,14 +1,15 @@
-import React from 'react';
-import './Services.css';
+import React from 'react'
+import './Services.css'
 
-const Services = () => {
-  const servicesData = [
+function Services() {
+//    where we run our javascript
+const servicesData = [
     {
       id: 1,
       title: 'Coding Bootcamps',
       icon: '💻',
       description: 'Intensive, hands-on training in full-stack development, algorithms, and real-world projects. Launch your tech career in weeks.',
-      features: ['JavaScript/Python', 'Full-stack projects', 'Career support']
+      features: ['JavaScript/Python', 'Full-stack projects', 'Career support','Debugging']
     },
     {
       id: 2,
@@ -33,19 +34,21 @@ const Services = () => {
     }
   ];
 
-  return (
-    <section className="services-section">
-      <div className="services-container">
-        <div className="services-header">
-          <span className="services-badge">What We Offer</span>
-          <h2 className="services-title">Premium <span className="highlight">Services</span></h2>
-          <p className="services-subtitle">
-            Empowering your future with industry‑leading training and support
-          </p>
-        </div>
 
-        <div className="services-grid">
-          {servicesData.map((service) => (
+
+  return (
+    <section className='services-section'>
+        <div className='services-container'>
+            <div className='services-header'>
+              <span className="services-badge">What We Offer</span>
+              <h2 className="services-title">Premium <span className="highlight">Services</span></h2>
+              <p className="services-subtitle">
+                 Empowering your future with industry‑leading training and support
+              </p>     
+            </div>
+        </div>
+        <div className='services-grid'>     
+        {servicesData.map((service) => (
             <div className="service-card" key={service.id}>
               <div className="service-icon">{service.icon}</div>
               <h3 className="service-title">{service.title}</h3>
@@ -58,10 +61,11 @@ const Services = () => {
               <button className="service-btn">Learn More →</button>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-};
 
-export default Services;
+        </div>
+
+    </section>
+  )
+}
+
+export default Services

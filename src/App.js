@@ -6,14 +6,16 @@ import Services from './Services';
 import AboutUs from './AboutUS';
 import Footer from './Footer';
 
+
 function App() {
   return (
     <div className="App">
+             {/* <Homepage/> */}
              <Header/>
              <Carousel autoPlayInterval={5000} />
              <AboutUs/>
-             <Services/>
-             <Footer/>
+              <Services/>
+             {/* <Footer/>  */}
     </div>
   );
 }
