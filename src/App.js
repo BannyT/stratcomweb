@@ -23,14 +23,19 @@ function App() {
                            <Route path='/about' element={<AboutUs/>}/>
                            <Route path='/services' element={<Services/>}/>
                       </Routes>
+                    <Footer/> 
+
                     </>
-                   } />  
+                   } />
+                   <Route path='/login'  element={<Login/>} />
+                   <Route path ='/signup' element={<Signup/>}/>
+
                 </Routes>
-            </Router>
+               </Router>
                     
               {/* <Login/>
               <Signup/> */}
-             <Footer/> 
+             
     </div>
   );
 }
