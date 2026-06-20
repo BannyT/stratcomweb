@@ -5,7 +5,8 @@ import Carousel from './Carousel';
 import Services from './Services';
 import AboutUs from './AboutUS';
 import Footer from './Footer';
-
+import Login from './Login';
+import Signup from './Signup';
 
 function App() {
   return (
@@ -15,7 +16,9 @@ function App() {
              <Carousel autoPlayInterval={5000} />
              <AboutUs/>
               <Services/>
-             {/* <Footer/>  */}
+              <Login/>
+              <Signup/>
+             <Footer/> 
     </div>
   );
 }
