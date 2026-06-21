@@ -1,73 +1,57 @@
-import React from 'react';
-import './Signup.css';
+import React from 'react'
+import './Signup.css'
 
-const Signup = () => {
+function Signup() {
   return (
-    <div className="signup-page">
-      <div className="signup-card">
-        <div className="signup-header">
-          <span className="signup-brand">StratCom</span>
-          <h2>Create Account</h2>
-          <p>Join us and start your tech journey today</p>
+    <div className='signuppage'>
+        <div className='signupcard'>
+          <div className='signupheader'>
+              <span className='signupbrand'> Stratcom Ug</span>
+              <h2>Create Account</h2>
+              <p>Join us and start your tech journey today</p>
+          </div>
+          <form className='signupform'>
+              <div className='signupformgroup'>
+                 <label htmlFor='signupfullname'>Full Name</label>
+                 <input 
+                  id="signupfullname"
+                  placeholder='John'
+                  required
+                 type="text"/>
+
+              </div>
+              <div className='signupformgroup'>
+                 <label htmlFor='signupemail'>Email</label>
+                 <input 
+                  id="signupemail"
+                  placeholder='tumusiime@gmail.com'
+                  required
+                 type="email"/>
+              </div>
+              <div className='signupformgroup'>
+                 <label htmlFor='signuppassword'>Password</label>
+                 <input 
+                  id="signuppassword"
+                  placeholder='********'
+                  required
+                 type="password"/>
+
+              </div>
+              <div className="signupformoptions">
+                 <label className='signupterms'>
+                    <input type="checkbox" required />
+                     i Agree to the terms of service and Privacy policy
+                 </label>
+              </div>
+              <button className='signupbutton' type='submit'>Create Account</button>
+          </form>
+          <p className='signupswitch'>
+             Already have account? <a href='/login'>Login</a>
+          </p>
+
         </div>
-
-        <form className="signup-form">
-          <div className="signup-form-group">
-            <label htmlFor="signup-fullname">Full Name</label>
-            <input 
-              type="text" 
-              id="signup-fullname" 
-              placeholder="John Doe" 
-              required
-            />
-          </div>
-
-          <div className="signup-form-group">
-            <label htmlFor="signup-email">Email Address</label>
-            <input 
-              type="email" 
-              id="signup-email" 
-              placeholder="you@example.com" 
-              required
-            />
-          </div>
-
-          <div className="signup-form-group">
-            <label htmlFor="signup-password">Password</label>
-            <input 
-              type="password" 
-              id="signup-password" 
-              placeholder="Create a strong password" 
-              required
-            />
-          </div>
-
-          <div className="signup-form-group">
-            <label htmlFor="signup-confirm">Confirm Password</label>
-            <input 
-              type="password" 
-              id="signup-confirm" 
-              placeholder="Confirm your password" 
-              required
-            />
-          </div>
-
-          <div className="signup-form-options">
-            <label className="signup-terms">
-              <input type="checkbox" required /> I agree to the 
-              <a href="#"> Terms of Service</a> and <a href="#">Privacy Policy</a>
-            </label>
-          </div>
-
-          <button type="submit" className="signup-btn">Create Account</button>
-        </form>
-
-        <p className="signup-switch">
-          Already have an account? <a href="/login">Log in</a>
-        </p>
-      </div>
     </div>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup
