@@ -6,7 +6,7 @@ const Login = () => {
     <div className="login-page">
       <div className="login-card">
         <div className="login-header">
-          <span className="login-brand">StratCom</span>
+          <span className="login-brand"><a href='/'>StratCom</a></span>
           <h2>Welcome Back</h2>
           <p>Sign in to your account to continue</p>
         </div>

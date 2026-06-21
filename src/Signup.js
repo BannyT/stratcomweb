@@ -6,7 +6,7 @@ function Signup() {
     <div className='signuppage'>
         <div className='signupcard'>
           <div className='signupheader'>
-              <span className='signupbrand'> Stratcom Ug</span>
+              <span className='signupbrand'> <a href='/'> Stratcom Ug </a> </span>
               <h2>Create Account</h2>
               <p>Join us and start your tech journey today</p>
           </div>
