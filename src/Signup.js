@@ -8,12 +8,17 @@ function Signup() {
       const [fullname,setFullName]=useState('')
       const [error,setError]=useState('')
       const [loading,setLoading]=useState(false)
-      
+
 
       // fucntion to create Account
 
        const createAccount =async ()=>{
-               
+               setError('')
+               if(password.length < 6){
+                  setError('Password Must be atleast 6 characters')
+                  return;
+               }
+               setLoading(true)
        }
 
   return (
