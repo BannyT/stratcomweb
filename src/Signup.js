@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
+import { auth,createUserWithEmailAndPassword,updateProfile } from './firebase'
 import './Signup.css'
 
 function Signup() {
@@ -10,15 +12,48 @@ function Signup() {
       const [loading,setLoading]=useState(false)
 
 
+      const navigate =useNavigate()
+
+
       // fucntion to create Account
 
-       const createAccount =async ()=>{
+       const createAccount = async ()=>{
                setError('')
                if(password.length < 6){
                   setError('Password Must be atleast 6 characters')
                   return;
                }
-               setLoading(true)
+               setLoading(true)              
+        try {
+      // Create user with email and password
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Update profile with display name
+      await updateProfile(user, { displayName: fullname });
+
+      // Signup successful, redirect to dashboard
+      alert('account Created successfully')
+      navigate('/');
+    } catch (err) {
+      console.error('Signup error:', err.message);
+      // User-friendly error messages
+      switch (err.code) {
+        case 'auth/email-already-in-use':
+          setError('This email is already registered. Please log in.');
+          break;
+        case 'auth/invalid-email':
+          setError('Invalid email address.');
+          break;
+        case 'auth/weak-password':
+          setError('Password is too weak. Use at least 6 characters.');
+          break;
+        default:
+          setError('Signup failed. Please try again.');
+      }
+    } finally {
+      setLoading(false);
+    }
        }
 
   return (
