@@ -6,8 +6,15 @@ function Signup() {
       const [email,setEmail]= useState('')
       const [password,setPassword]=useState('')
       const [fullname,setFullName]=useState('')
+      const [error,setError]=useState('')
+      const [loading,setLoading]=useState(false)
+      
 
-      console.log(fullname)
+      // fucntion to create Account
+
+       const createAccount =async ()=>{
+               
+       }
 
   return (
     <div className='signuppage'>
@@ -56,7 +63,7 @@ function Signup() {
                      i Agree to the terms of service and Privacy policy
                  </label>
               </div>
-              <button className='signupbutton' type='submit'>Create Account</button>
+              <button  onClick={createAccount} className='signupbutton' type='submit'>Create Account</button>
           </form>
           <p className='signupswitch'>
              Already have account? <a href='/login'>Login</a>
