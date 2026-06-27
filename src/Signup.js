@@ -1,7 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Signup.css'
 
 function Signup() {
+
+      const [email,setEmail]= useState('')
+      const [password,setPassword]=useState('')
+      const [fullname,setFullName]=useState('')
+
+      console.log(fullname)
+
   return (
     <div className='signuppage'>
         <div className='signupcard'>
@@ -17,6 +24,8 @@ function Signup() {
                   id="signupfullname"
                   placeholder='John'
                   required
+                  value={fullname}
+                  onChange={((e)=>setFullName(e.target.value))}
                  type="text"/>
 
               </div>
@@ -26,6 +35,8 @@ function Signup() {
                   id="signupemail"
                   placeholder='tumusiime@gmail.com'
                   required
+                  value={email}
+                  onChange={(e)=>setEmail(e.target.value)}
                  type="email"/>
               </div>
               <div className='signupformgroup'>
@@ -34,6 +45,8 @@ function Signup() {
                   id="signuppassword"
                   placeholder='********'
                   required
+                  value={password}
+                  onChange={(e)=>setPassword(e.target.value)}
                  type="password"/>
 
               </div>
