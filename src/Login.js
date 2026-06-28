@@ -14,7 +14,8 @@ const Login = () => {
     
   //  login function
 
-      const loginUser = async ()=>{
+      const loginUser = async (e)=>{
+          e.preventDefault()
           setError('')
           setLoading(true)
           try{
@@ -85,7 +86,7 @@ const Login = () => {
 
           <button onClick={loginUser} type="submit" className="login-btn">{loading?'Signing In .....':'Sign In'}</button>
         </form>
-
+          {error && <div><p className='login-error'>{error}</p></div>}
         <p className="login-switch">
           Don't have an account? <a href="/signup">Sign up</a>
         </p>
