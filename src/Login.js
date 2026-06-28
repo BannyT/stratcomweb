@@ -10,7 +10,13 @@ const Login = () => {
   const [error,setError]=useState('')
   const [loading,setLoading]=useState(false)
   const navigate =useNavigate()
-    console.log('this is password',password)
+    
+  //  login function
+
+      const loginUser =()=>{
+          //  console.log('login me')
+      }
+
   return (
     <div className="login-page">
       <div className="login-card">
@@ -52,7 +58,7 @@ const Login = () => {
             <a href="#" className="login-forgot">Forgot password?</a>
           </div>
 
-          <button type="submit" className="login-btn">Sign In</button>
+          <button onClick={loginUser} type="submit" className="login-btn">Sign In</button>
         </form>
 
         <p className="login-switch">
