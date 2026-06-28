@@ -34,7 +34,7 @@ function Signup() {
 
       // Signup successful, redirect to dashboard
       alert('account Created successfully')
-      navigate('/');
+      navigate('/dashboard');
     } catch (err) {
       console.error('Signup error:', err.message);
       // User-friendly error messages

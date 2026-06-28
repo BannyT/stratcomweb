@@ -1,7 +1,16 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './Login.css';
+import { useNavigate } from 'react-router-dom';
+import {auth,signInWithEmailAndPassword} from './firebase'
+
 
 const Login = () => {
+  const [email,setEmail]=useState('')
+  const [password,setPassword]=useState('')
+  const [error,setError]=useState('')
+  const [loading,setLoading]=useState(false)
+  const navigate =useNavigate()
+    console.log('this is password',password)
   return (
     <div className="login-page">
       <div className="login-card">
@@ -18,6 +27,8 @@ const Login = () => {
               type="email" 
               id="login-email" 
               placeholder="you@example.com" 
+              value={email}
+              onChange={(e)=>setEmail(e.target.value)}
               required
             />
           </div>
@@ -29,6 +40,8 @@ const Login = () => {
               id="login-password" 
               placeholder="Enter your password" 
               required
+              value={password}
+              onChange={(e)=>setPassword(e.target.value)}
             />
           </div>
 
