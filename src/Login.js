@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import {auth,signInWithEmailAndPassword} from './firebase'
+import { async } from '@firebase/util';
 
 
 const Login = () => {
@@ -13,8 +14,32 @@ const Login = () => {
     
   //  login function
 
-      const loginUser =()=>{
-          //  console.log('login me')
+      const loginUser = async ()=>{
+          setError('')
+          setLoading(true)
+          try{
+               await signInWithEmailAndPassword(auth,email,password)
+               navigate('/dashboard')
+          }catch(err){
+            switch(err.code){
+              case 'auth/user-not-found':
+                setError('User Not Found')
+                break;
+              case 'auth/wrong-password':
+                setError('Wrong Password')
+                break;
+              case 'auth/invalid-email':
+                setError('Invalid Email Address')
+                break;
+              case 'auth/too-many-requests':
+                setError('Too many Requests Submitted') 
+                break;
+                default:
+                setError('Login Failed, Please try again')       
+            }
+          }finally{
+            setLoading(false)
+          }
       }
 
   return (
@@ -58,7 +83,7 @@ const Login = () => {
             <a href="#" className="login-forgot">Forgot password?</a>
           </div>
 
-          <button onClick={loginUser} type="submit" className="login-btn">Sign In</button>
+          <button onClick={loginUser} type="submit" className="login-btn">{loading?'Signing In .....':'Sign In'}</button>
         </form>
 
         <p className="login-switch">
