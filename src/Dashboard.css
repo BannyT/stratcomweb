@@ -1,0 +1,269 @@
+/* Dashboard Styles */
+.dashboard {
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2f8 100%);
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+  
+  .dashboard-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  /* Header */
+  .dashboard-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .dashboard-badge {
+    display: inline-block;
+    background: rgba(30, 111, 159, 0.1);
+    color: #1e6f9f;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0.4rem 1.2rem;
+    border-radius: 40px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #1e2b3c;
+    margin: 0.5rem 0 0.2rem;
+  }
+  
+  .dashboard-header .highlight {
+    background: linear-gradient(135deg, #1e6f9f, #2c4c6e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .dashboard-header p {
+    color: #4a627a;
+    font-size: 1.1rem;
+  }
+  
+  /* Form Card */
+  .form-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 28px;
+    padding: 2rem 2rem 1.5rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 3rem;
+    transition: transform 0.2s;
+  }
+  
+  .form-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .form-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e2b3c;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1e2b3c;
+    margin-bottom: 0.3rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid #dce3ec;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: border 0.2s, box-shadow 0.2s;
+    background: white;
+    font-family: inherit;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #1e6f9f;
+    box-shadow: 0 0 0 3px rgba(30, 111, 159, 0.15);
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #1e6f9f, #2c4c6e);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30, 111, 159, 0.25);
+  }
+  
+  .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .btn-secondary {
+    background: #eef2f8;
+    color: #1e2b3c;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .btn-secondary:hover {
+    background: #dce3ec;
+  }
+  
+  /* Activities Section */
+  .activities-section h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e2b3c;
+    margin-bottom: 1.5rem;
+  }
+  
+  .empty-state {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 28px;
+    color: #4a627a;
+    font-size: 1.1rem;
+  }
+  
+  .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .activity-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e8edf4;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .activity-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .activity-content h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e2b3c;
+    margin: 0 0 0.3rem;
+  }
+  
+  .act-subtitle {
+    display: inline-block;
+    background: #eef2f8;
+    color: #1e6f9f;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.8rem;
+    border-radius: 30px;
+    margin-bottom: 0.8rem;
+  }
+  
+  .act-description {
+    color: #4a627a;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .act-date {
+    color: #94a3b8;
+    font-size: 0.75rem;
+  }
+  
+  .activity-actions {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+    justify-content: flex-end;
+    border-top: 1px solid #f0f4f9;
+    padding-top: 1rem;
+  }
+  
+  .btn-edit,
+  .btn-delete {
+    background: transparent;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+  
+  .btn-edit:hover {
+    background: #eef2f8;
+    transform: scale(1.1);
+  }
+  
+  .btn-delete:hover {
+    background: #fee2e2;
+    transform: scale(1.1);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .dashboard-header h1 {
+      font-size: 2.2rem;
+    }
+    .form-card {
+      padding: 1.5rem;
+    }
+    .activities-grid {
+      grid-template-columns: 1fr;
+    }
+    .form-actions {
+      flex-direction: column;
+    }
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+      text-align: center;
+    }
+  }

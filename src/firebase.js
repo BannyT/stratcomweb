@@ -6,6 +6,18 @@ import {
   createUserWithEmailAndPassword, 
   updateProfile 
 } from "firebase/auth";
+import { 
+  getFirestore, 
+  collection, 
+  addDoc, 
+  getDocs, 
+  updateDoc, 
+  deleteDoc, 
+  doc, 
+  onSnapshot, 
+  query, 
+  orderBy 
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAZIK7MGSeJJplSHNszTft9FGXbbkkH2HQ",
@@ -17,13 +29,25 @@ const firebaseConfig = {
   measurementId: "G-N69MC6WNFR"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
-// Export everything needed
+// Export auth, db, and all needed Firestore functions
 export { 
-  auth, 
+  auth,
+  db,
   signInWithEmailAndPassword, 
   createUserWithEmailAndPassword, 
-  updateProfile 
+  updateProfile,
+  collection,
+  addDoc,
+  getDocs,
+  updateDoc,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  query,
+  orderBy
 };
