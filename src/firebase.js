@@ -4,6 +4,7 @@ import {
   getAuth, 
   signInWithEmailAndPassword, 
   createUserWithEmailAndPassword, 
+  signOut,
   updateProfile 
 } from "firebase/auth";
 import { 
@@ -46,6 +47,7 @@ export {
   getDocs,
   updateDoc,
   deleteDoc,
+  signOut,
   doc,
   onSnapshot,
   query,

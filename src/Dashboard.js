@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   db, 
   collection, 
@@ -8,7 +9,9 @@ import {
   doc, 
   onSnapshot, 
   query, 
-  orderBy 
+  orderBy,
+  auth,
+  signOut
 } from './firebase';
 import './Dashboard.css';
 
@@ -17,8 +20,21 @@ const Dashboard = () => {
   const [formData, setFormData] = useState({ title: '', subtitle: '', description: '' });
   const [editingId, setEditingId] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
-  // 🔥 Real‑time listener for activities (ordered newest first)
+  // Get current user from Firebase Auth
+  useEffect(() => {
+    const unsubscribeAuth = auth.onAuthStateChanged((currentUser) => {
+      setUser(currentUser);
+      if (!currentUser) {
+        navigate('/login');
+      }
+    });
+    return () => unsubscribeAuth();
+  }, [navigate]);
+
+  // 🔥 Real‑time listener for activities
   useEffect(() => {
     const q = query(collection(db, 'activities'), orderBy('createdAt', 'desc'));
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -38,7 +54,7 @@ const Dashboard = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Reset form after submit/cancel
+  // Reset form
   const resetForm = () => {
     setFormData({ title: '', subtitle: '', description: '' });
     setEditingId(null);
@@ -55,7 +71,6 @@ const Dashboard = () => {
     setLoading(true);
     try {
       if (editingId) {
-        // Update existing
         await updateDoc(doc(db, 'activities', editingId), {
           title: formData.title,
           subtitle: formData.subtitle || '',
@@ -64,13 +79,13 @@ const Dashboard = () => {
         });
         alert('Activity updated!');
       } else {
-        // Add new
         await addDoc(collection(db, 'activities'), {
           title: formData.title,
           subtitle: formData.subtitle || '',
           description: formData.description,
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
+          userId: user ? user.uid : null, // optional: link to user
         });
         alert('Activity added!');
       }
@@ -83,7 +98,7 @@ const Dashboard = () => {
     }
   };
 
-  // ✏️ Edit – populate form with selected activity
+  // ✏️ Edit
   const handleEdit = (activity) => {
     setFormData({
       title: activity.title,
@@ -94,7 +109,7 @@ const Dashboard = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // 🗑️ Delete with confirmation
+  // 🗑️ Delete
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this activity permanently?')) return;
     try {
@@ -106,8 +121,34 @@ const Dashboard = () => {
     }
   };
 
+  // 🚪 Logout
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate('/login');
+    } catch (error) {
+      console.error('Logout error:', error);
+      alert('Failed to log out.');
+    }
+  };
+
+  if (!user) {
+    return <div className="dashboard-loading">Loading...</div>; // or redirect
+  }
+
   return (
     <div className="dashboard">
+      {/* Top Bar with Logout */}
+      <div className="dashboard-topbar">
+        <div className="topbar-left">
+          <span className="topbar-logo">StratCom</span>
+          <span className="topbar-greeting">Hello, {user.displayName || user.email || 'User'}</span>
+        </div>
+        <button className="topbar-logout" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
+
       <div className="dashboard-container">
         {/* Header */}
         <div className="dashboard-header">
